@@ -25,7 +25,7 @@ class Person {
 				this.isWorking = false;
 			}
 		} else {
-			if (this.health < 100 && this.health > 50 && this.happiness > 20) {
+			if (this.health < 100 && this.health > 30 && this.happiness > 20) {
 				this.health += 1;
 			} else {
 				this.health -= 1;
@@ -67,6 +67,7 @@ function usePropaganda() {
 	if (mood > 100) {
 		mood = 100;
 	}
+	money -= 10
 }
 
 function healPeople() {
@@ -139,6 +140,12 @@ function tick() {
 		console.log(`time lasted: ${time}`);
 		console.log(`high score: ${Math.round(high)} at time: ${high_time}`);
 	}
+	if (time % 10 == 0) {
+		clearInterval(ticker)
+		delay *= .99;
+		ticker = setInterval(tick, delay);
+	}
 }
 
-ticker = setInterval(tick, 10);
+let delay = 1000
+ticker = setInterval(tick, delay);
