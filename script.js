@@ -1,7 +1,7 @@
 class Person {
 	constructor() {
-		this.health = 80;
-		this.happiness = 70;
+		this.health = av_hel;
+		this.happiness = av_hap;
 		this.isWorking = true;
 		this.alive = true;
 	}
@@ -45,7 +45,7 @@ class Person {
 
 var money = 50;
 var av_hap = 70;
-var av_hel = 100;
+var av_hel = 80;
 var working_threshold = 70;
 var back_to_work_threshold = 10;
 let wealth = money + av_hap + av_hel;
