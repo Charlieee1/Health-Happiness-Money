@@ -19,6 +19,10 @@ The game runs on a loop where it constantly update the employees. You have the a
 
 The game will get faster and faster, and won't ever stop getting faster. Eventually, you won't have time to click the suppor button, or you'll simply forget to do it in the madness of the simulation.
 
+I created a desmos graph that shows the stats of the simulation if left untouched:
+https://www.desmos.com/calculator/bxrqnzvv1g
+You can see that eventually, all stats will reach rock-bottom, which is why the player has to maintain the stats and get ever increasing amounts of money.
+
 ## How we built it
 As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks. Partway through, I teamed up with Solomon so we could separate the tasks of frontend and backend.
 
