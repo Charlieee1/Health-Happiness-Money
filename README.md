@@ -20,7 +20,9 @@ The game runs on a loop where it constantly update the employees. You have the a
 The game will get faster and faster, and won't ever stop getting faster. Eventually, you won't have time to click the support button, or you'll simply forget to do it in the madness of the simulation.
 
 I created a desmos graph that shows the stats of the simulation if left untouched:
-https://www.desmos.com/calculator/bxrqnzvv1g
+
+[Desmos Graph](https://www.desmos.com/calculator/bxrqnzvv1g)
+
 You can see that eventually, all stats will reach rock-bottom, which is why the player has to maintain the stats and get ever increasing amounts of money.
 
 ## How we built it
