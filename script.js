@@ -10,7 +10,7 @@ class Person {
 		if (!this.alive) return;
 		if (this.isWorking) {
 			// The happier a person, the more income they generate
-			money += .0075 * this.happiness + .25 + (.1 * Math.random() - .05)
+			money += (.0075 * this.happiness + .25 + (.1 * Math.random() - .05)) / 10;
 			this.health -= 1;
 			if (this.health >= 70 && this.happiness < 100 && this.happiness > 20) {
 				this.happiness += 1;
@@ -43,12 +43,12 @@ class Person {
 	}
 }
 
-var money = 50;
+var money = 5;
 var av_hap = 70;
 var av_hel = 80;
 var working_threshold = 70;
 var back_to_work_threshold = 10;
-let wealth = money + av_hap + av_hel;
+let wealth = (money + av_hap + av_hel) / 3;
 let people = [];
 for (let i = 0; i < 100; i++) {
 	people.push(new Person());
@@ -62,34 +62,42 @@ let mon_hist = [money];
 let wth_hist = [wealth];
 let mood = 0;
 
-function usePropaganda() {
+function giveSupport() {
 	mood += 40;
 	if (mood > 100) {
 		mood = 100;
 	}
-	money -= 10
+	money -= 1;
 }
 
 function healPeople() {
 	for (person of people) {
 		if (person.health < 30) {
-			money -= 40 - person.health;
+			money -= (40 - person.health) / 10;
 			person.health = 40;
 		}
 	}
 }
 
+function healthMaintenance() {
+	for (person of people.sort(() => .5 - Math.random()).slice(0, 40)) {
+		person.health = Math.min(Math.max(person.health + 1, 0), 100);
+		person.happiness = Math.min(Math.max(person.happiness + Math.round(Math.random()), 0), 100);
+	}
+	money -= 1;
+}
+
 function cureDepression() {
 	for (person of people) {
 		if (person.happiness < 20) {
-			money -= 30 - person.happiness;
+			money -= (30 - person.happiness) / 10;
 			person.happiness = 30;
 		}
 	}
 }
 
 function tick() {
-	money -= 20;
+	money -= 2;
 	av_hap = 0;
 	av_hel = 0;
 	mood -= 1;
@@ -103,15 +111,14 @@ function tick() {
 		change = mood / Math.abs(mood);
 		// Increase or decrease the happiness of some random people.
 		for (person of people.sort(() => .5 - Math.random()).slice(0, Math.abs(mood))) {
-			person.happiness += change;
+			person.happiness = Math.min(Math.max(person.happiness + change, 0), 100);
 		}
 	}
-	// Your company is generally horrible to work at
-	// Because you feel the need to yell at a random employee everyday
+	// Your company has some cases of people becoming especially unhappy or landing in an accident
+	// Made ridiculously extreme for gameplay purposes
 	people[Math.round(99 * Math.random())].happiness -= 5;
-	// You also like to beat up a random person, even though it hurts company profits
 	people[Math.round(99 * Math.random())].health -= 20;
-	wealth = money + av_hap + av_hel;
+	wealth = (money + av_hap + av_hel) / 3;
 	time += 1;
 	if (money > high) {
 		high = money;
@@ -126,7 +133,7 @@ function tick() {
 	hel_hist.push(av_hel);
 	mon_hist.push(money);
 	wth_hist.push(wealth);
-	if (av_hel == 0 || av_hap < 20 || av_hap > 80 || money < 0) {
+	if (av_hel == 0 || av_hap < 20 || av_hap > 80 || av_hel > 90 || money < 0) {
 		clearInterval(ticker);
 		if (av_hel == 0) {
 			console.log("Everyone died! You overworked them too much.");
@@ -134,7 +141,9 @@ function tick() {
 			console.log("Enough people are depressed to overthrow you! You overworked them too much.");
 		} else if (av_hap > 80) {
 			console.log("People are too happy! They have enough free time on their hands to do other things such as apply to a different job, create a union, or other such unsatisfactory actions.");
-		} else {
+		} else if (av_hel > 90) {
+			console.log("People are too healthy! They have developed such excellent healthy habits that other aspects of their life improve rapidly, such as happiness, which leads to unsatisfactory actions.");
+		}else {
 			console.log("You are too poor to continue!");
 		}
 		console.log(`time lasted: ${time}`);
