@@ -1,4 +1,4 @@
-# Happiness-Health-Money
+# Health-Happiness-Money
 You are a small company that is forced keep your employee's mental and physical healths up to continue making those sweet, sweet profits. Be careful though, as you don't want you employee's to be too happy. Let's see how long you last, as one thing's for certain: It will become tough.
 
 ## How to play
@@ -26,19 +26,18 @@ I created a desmos graph that shows the stats of the simulation if left untouche
 You can see that eventually, all stats will reach rock-bottom, which is why the player has to maintain the stats and get ever increasing amounts of money.
 
 ## How we built it
-As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks. Partway through, I teamed up with Solomon so we could separate the tasks of frontend and backend.
+As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks.
 
 ## Challenges we ran into
 There were no serious technical challenges and because the game was limited in scope and we had two people to work on it, there was no serious time pressure. In other words, it was smooth sailing.
 
 ## Accomplishments that we're proud of
-This is the first game/project that I (Nick) am proud of, because it is finished and fun to play. Working with a partner just made the entire experience more enjoyable.
+This is the first game/project that I am proud of, because it is finished and fun to play. Working with a partner just made the entire experience more enjoyable.
 
 ## What we learned
-For me (Nick), it is my first hackathon, so I learned how to:
+It is my first hackathon, so I learned how to:
 - Quickly come up with an idea that I want to follow
 - Code under time pressure
-- Work with a teammate to finish the project faster and delegate subtasks appropriately
 - Participate in a mega-awesome hackathon!
 
 ## What's next for Happiness-Health-Money
