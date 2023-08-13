@@ -17,7 +17,7 @@ The game runs on a loop where it constantly update the employees. You have the a
 - How much do you want to pay for therapy for your depressed employees (don't look at me! It wasn't **my** fault)
 - How much do you want to pay for health support for your employees
 
-The game will get faster and faster, and won't ever stop getting faster. Eventually, you won't have time to click the suppor button, or you'll simply forget to do it in the madness of the simulation.
+The game will get faster and faster, and won't ever stop getting faster. Eventually, you won't have time to click the support button, or you'll simply forget to do it in the madness of the simulation.
 
 I created a desmos graph that shows the stats of the simulation if left untouched:
 https://www.desmos.com/calculator/bxrqnzvv1g
