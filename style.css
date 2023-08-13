@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    gap: 30px;
+}
+
+.row1{
+    border: 2px solid black;
+    width:10%;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.row2{
+    border: 2px solid black;
+    width:25%;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    border: 2px solid black;
+    width: 10%;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
