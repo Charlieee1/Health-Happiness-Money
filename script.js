@@ -40,7 +40,7 @@ class Person {
 			return
 		}
 		av_hap += this.happiness / (100 - ded);
-		av_hel += this.health / 100;
+		av_hel += this.health / (100 - ded);
 		if (this.health < min_hel) {
 			min_hel = this.health;
 		}
@@ -86,12 +86,14 @@ function giveSupport() {
 	money -= 2;
 }
 
+// This seems to not work
 function healPeople() {
 	for (person of people) {
-		if (person.health < 50) {
-			money -= (60 - person.health) / 100;
-			person.health = 60;
-			console.log(person.health);
+		if (person.health < 30) {
+			console.log(`before heal: ${person.health}`);
+			money -= (40 - person.health) / 10;
+			person.health = 40;
+			console.log(`after heal: ${person.health}`);
 		}
 	}
 }
@@ -104,11 +106,14 @@ function healthMaintenance() {
 	}
 }
 
+// This seems to not work
 function cureDepression() {
 	for (person of people) {
 		if (person.happiness < 20) {
-			money -= (50 - person.happiness) / 100;
+			console.log(`before therapy: ${person.happiness}`);
+			money -= (50 - person.happiness) / 10;
 			person.happiness = 50;
+			console.log(`after therapy: ${person.happiness}`);
 		}
 	}
 }
@@ -133,8 +138,8 @@ function tick() {
 	}
 	// Your company has some cases of people becoming especially unhappy or landing in an accident
 	// Made ridiculously extreme for gameplay purposes
-	people[Math.round(99 * Math.random())].happiness -= 5;
-	people[Math.round(99 * Math.random())].health -= 10;
+	people[Math.round(99 * Math.random())].happiness -= 2;
+	people[Math.round(99 * Math.random())].health -= 2;
 	wealth = (money + av_hap + av_hel) / 3;
 	time += 1;
 	if (money > high) {
