@@ -71,7 +71,7 @@ canvas {
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  -webkit-appearance: slider-vertical;
   appearance: none;
   width: 25px;
   height: 25px;
