@@ -29,7 +29,7 @@ You can see that eventually, all stats will reach rock-bottom, which is why the 
 
 The health and money graphs will generally have very sharp and sudden changes and is not very curvy, but the happiness graph will be curvy. The health and happiness panels have orange lines, showing the current least healthy or least happy employee. The black lines show the average health or happiness. The bottom of the money panels is always 0, but the top changes dynamically.
 
-My high score is 341, with time elapsed 81 and 97 dead! Let's see if you can beat me! Oh and also, I got two endings at once: depression and too happy. The graph went for a dive and then went straight to space.
+My high score is 393, with time elapsed 81 and 100 dead! Let's see if you can beat me! Oh and also, I got two endings at once: depression and too happy. The graph went for a dive and then went straight to space.
 
 ## How we built it
 As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks. Later, I had to add css to make things look decent. The slider is copied from w3schools.
