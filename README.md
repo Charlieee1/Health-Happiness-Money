@@ -35,7 +35,7 @@ My high score is 341, with time elapsed 81 and 97 dead! Let's see if you can bea
 As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks. Later, I had to add css to make things look decent. The slider is copied from w3schools.
 
 ## Challenges we ran into
-Because the game was limited in scope, there was no serious time pressure. However, my former teammate did lose me about a half-day's time, which I then had to compensate for. I'm primarily a backend dev, so the frontend was a challenge for me, especially flexboxes.
+Because the game was limited in scope, there was no serious time pressure. However, I lost about a half-day's time, which I then had to compensate for. I'm primarily a backend dev, so the frontend was a challenge for me, especially flexboxes.
 
 ## Accomplishments that we're proud of
 This is the first game/project that I am proud of, because it is finished and fun to play. I'm also proud of the html and css, as I'm not very good at frontend.
