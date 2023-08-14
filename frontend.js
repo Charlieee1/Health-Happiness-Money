@@ -69,6 +69,9 @@ function updateHealthVisuals() {
 }
 
 let working_threshold_slider = document.getElementById("working-threshold");
+let size = document.getElementById("working-threshold-container").offsetHeight + "px";
+console.log(size);
+working_threshold_slider.style.width = size;
 working_threshold_slider.value = working_threshold;
 working_threshold_slider.oninput = function() {
 	working_threshold = parseInt(this.value);
