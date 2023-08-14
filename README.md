@@ -32,7 +32,7 @@ As the game would be simple, I went for a simple html and javascript website, wi
 There were no serious technical challenges and because the game was limited in scope and we had two people to work on it, there was no serious time pressure. In other words, it was smooth sailing.
 
 ## Accomplishments that we're proud of
-This is the first game/project that I am proud of, because it is finished and fun to play. Working with a partner just made the entire experience more enjoyable.
+This is the first game/project that I am proud of, because it is finished and fun to play.
 
 ## What we learned
 It is my first hackathon, so I learned how to:

@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-<title>Health-Happiness-Money</title>
+	<title>Health-Happiness-Money</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-=======
-<title>Page Title</title>
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-
-    <section>
-        <div class="">
-            <strong>Africinnovate</strong>
-            <div class="container">
-                <div class="row1">average health</div>
-                <div class="row2">average health</div>
-                <button class="button">button</button>
-            </div>
-            <div class="container">
-                <div class="row1">average health</div>
-                <div class="row2">average health</div>
-            </div>
-            <div class="container">
-                <div class="row1">average health</div>
-                <div class="row2">average health</div>
-            </div>
-        </div>
-    </section>
->>>>>>> 1eb350fc78e9b6f7713eadaff4d7ada3e2b1bd9c
-
 <script src="script.js"></script>
+<div class="main">
+	<div id="company-data">
+		<strong id="company-name">Company Name</strong>
+		<span id="high-score">High Score: 5</span>
+		<span id="time">Time elapsed: 0</span>
+	</div>
+	<div class="data">
+		<div class="row">
+			<div class="label">Health</div>
+			<div class="container">
+				<div class="c1">
+					<canvas id="average-health" width=1 height=100></canvas>
+				</div>
+				<input type="range" min="0" max="100" value="70" class="slider" id="working-threshold" orient="vertical">
+				<div class="c2">
+					<div class="graph">
+						<canvas id="health-graph" width=500 height=100></canvas>
+					</div>
+					<div class="button-row">
+						<button class="button" onclick="healPeople()">Heal</button>
+						<button class="button" onclick="healthMaintenance()">Maintain</button>
+						<div class="filler"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="label">Happiness</div>
+			<div class="container">
+				<div class="c1">
+					<canvas id="average-happiness" width=1 height=100></canvas>
+				</div>
+				<div class="c2">
+					<div class="graph">
+						<canvas id="happiness-graph" width=500 height=100></canvas>
+					</div>
+					<div class="button-row">
+						<button class="button" onclick="cureDepression()">Therapy</button>
+						<button class="button" onclick="giveSupport()">Support</button>
+						<div class="filler"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="label">Money</div>
+			<div class="container">
+				<div class="c1">
+					<canvas id="money-meter" width=1 height=100></canvas>
+				</div>
+				<div class="c2">
+					<div class="graph">
+						<canvas id="money-graph" width=500 height=100></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="frontend.js"></script>
 </body>
 </html>

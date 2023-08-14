@@ -2,37 +2,124 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+	border-radius: 5px;
 }
 
-.container{
+canvas {
+	flex-grow: 1;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+}
+
+.main {
+	min-width: 100vh;
+	min-height: 100vh;
+}
+
+.data {
+	margin-left: 30px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+    row-gap: 10px;
+	min-height: calc(33vh - 50px);
+}
+
+.label {
+	font-size: 30px;
+}
+
+.container {
     display: flex;
     flex-direction: row;
-    margin: 30px;
-    gap: 30px;
+    column-gap: 10px;
+	height: calc(33vh - 90px);
 }
 
-.row1{
+.c1 {
     border: 2px solid black;
-    width:10%;
-    height: 60px;
+    width: 5%;
     align-items: center;
     display: flex;
     justify-content: center;
+	flex-direction: column;
 }
-.row2{
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 15px;
+	height: 100%;
+	border-radius: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-moz-range-thumb {
+	  width: 25px;
+	  height: 25px;
+	  border-radius: 50%;
+	  background: #04AA6D;
+	  cursor: pointer;
+}
+
+.c2 {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.graph {
     border: 2px solid black;
-    width:25%;
-    height: 60px;
+	flex-grow: 1;
+	width: 400px;
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
-.button{
-    border: 2px solid black;
-    width: 10%;
-    height: 40px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.button-row {
+	display: flex;
+	height: 20px;
+	column-gap: 5px;
+}
+
+.button {
+    border: 2px solid #04AA6D;
+	padding-left: 2px;
+	padding-right: 2px;
+	height: 25px;
+	-webkit-transition: .2s;
+}
+
+.filler {
+	flex-grow: 1;
+}
+
+#company-data {
+	font-size: 20px;
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	gap: 30px;
+}
+
+#company-name {
+	font-size: 40px;
 }

@@ -56,10 +56,16 @@ for (let i = 0; i < 100; i++) {
 let time = 0;
 let high = money;
 let high_time = time;
-let hap_hist = [av_hap];
-let hel_hist = [av_hel];
-let mon_hist = [money];
-let wth_hist = [wealth];
+let hap_hist = [];
+let hel_hist = [];
+let mon_hist = [];
+let wth_hist = [];
+for (let i = 0; i < 500; i++) {
+	hap_hist.push(av_hap);
+	hel_hist.push(av_hel);
+	mon_hist.push(money);
+	wth_hist.push(wealth);
+}
 let mood = 0;
 
 function giveSupport() {
@@ -67,13 +73,13 @@ function giveSupport() {
 	if (mood > 100) {
 		mood = 100;
 	}
-	money -= 1;
+	money -= 4;
 }
 
 function healPeople() {
 	for (person of people) {
 		if (person.health < 30) {
-			money -= (40 - person.health) / 10;
+			money -= (40 - person.health) / 100;
 			person.health = 40;
 		}
 	}
@@ -81,10 +87,10 @@ function healPeople() {
 
 function healthMaintenance() {
 	for (person of people.sort(() => .5 - Math.random()).slice(0, 40)) {
-		person.health = Math.min(Math.max(person.health + 1, 0), 100);
+		person.health = Math.min(person.health + 10, 100);
 		person.happiness = Math.min(Math.max(person.happiness + Math.round(Math.random()), 0), 100);
+		money -= .1;
 	}
-	money -= 1;
 }
 
 function cureDepression() {
@@ -129,32 +135,38 @@ function tick() {
 	console.log(`average happiness: ${Math.round(av_hap)}`);
 	console.log(`average health: ${Math.round(av_hel)}`);
 	console.log(`wealth: ${Math.round(wealth)}`);
-	hap_hist.push(av_hap);
-	hel_hist.push(av_hel);
-	mon_hist.push(money);
-	wth_hist.push(wealth);
+	hap_hist = hap_hist.slice(1, 499).concat(av_hap);
+	hel_hist = hel_hist.slice(1, 499).concat(av_hel);
+	mon_hist = mon_hist.slice(1, 499).concat(money);
+	wth_hist = wth_hist.slice(1, 499).concat(wealth);
+	updateVisuals();
 	if (av_hel == 0 || av_hap < 20 || av_hap > 80 || av_hel > 90 || money < 0) {
 		clearInterval(ticker);
 		if (av_hel == 0) {
 			console.log("Everyone died! You overworked them too much.");
+			endGame("Everyone died! You overworked them too much.");
 		} else if (av_hap < 20) {
 			console.log("Enough people are depressed to overthrow you! You overworked them too much.");
+			endGame("Enough people are depressed to overthrow you! You overworked them too much.");
 		} else if (av_hap > 80) {
 			console.log("People are too happy! They have enough free time on their hands to do other things such as apply to a different job, create a union, or other such unsatisfactory actions.");
+			endGame("People are too happy! They have enough free time on their hands to do other things such as apply to a different job, create a union, or other such unsatisfactory actions.");
 		} else if (av_hel > 90) {
 			console.log("People are too healthy! They have developed such excellent healthy habits that other aspects of their life improve rapidly, such as happiness, which leads to unsatisfactory actions.");
+			endGame("People are too healthy! They have developed such excellent healthy habits that other aspects of their life improve rapidly, such as happiness, which leads to unsatisfactory actions.");
 		}else {
 			console.log("You are too poor to continue!");
+			endGame("You are too poor to continue!");
 		}
 		console.log(`time lasted: ${time}`);
 		console.log(`high score: ${Math.round(high)} at time: ${high_time}`);
 	}
 	if (time % 10 == 0) {
-		clearInterval(ticker)
+		//clearInterval(ticker)
 		delay *= .99;
-		ticker = setInterval(tick, delay);
+		//ticker = setInterval(tick, delay);
 	}
 }
 
-let delay = 1000
+let delay = 200
 ticker = setInterval(tick, delay);
