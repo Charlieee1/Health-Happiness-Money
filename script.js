@@ -122,6 +122,8 @@ function tick() {
 	money -= 2;
 	av_hap = 0;
 	av_hel = 0;
+	min_hap = 100;
+	min_hel = 100;
 	mood -= 1;
 	if (mood < -100) {
 		mood = -100;
