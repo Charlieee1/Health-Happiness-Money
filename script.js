@@ -134,8 +134,8 @@ function tick() {
 	}
 	// Your company has some cases of people becoming especially unhappy or landing in an accident
 	// Made ridiculously extreme for gameplay purposes
-	people[Math.round(99 * Math.random())].happiness -= 2;
-	people[Math.round(99 * Math.random())].health -= 2;
+	people[Math.round(99 * Math.random())].happiness -= 5;
+	people[Math.round(99 * Math.random())].health -= 5;
 	wealth = (money + av_hap + av_hel) / 3;
 	time += 1;
 	if (money > high) {
