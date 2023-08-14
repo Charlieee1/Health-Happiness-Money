@@ -91,7 +91,7 @@ function healPeople() {
 	for (person of people) {
 		if (person.health < 30) {
 			console.log(`before heal: ${person.health}`);
-			money -= (40 - person.health) / 10;
+			money -= (40 - person.health) / 50;
 			person.health = 40;
 			console.log(`after heal: ${person.health}`);
 		}
@@ -111,7 +111,7 @@ function cureDepression() {
 	for (person of people) {
 		if (person.happiness < 20) {
 			console.log(`before therapy: ${person.happiness}`);
-			money -= (50 - person.happiness) / 10;
+			money -= (50 - person.happiness) / 50;
 			person.happiness = 50;
 			console.log(`after therapy: ${person.happiness}`);
 		}
