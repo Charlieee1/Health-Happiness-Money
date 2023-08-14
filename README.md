@@ -4,6 +4,8 @@ You are a small company that is forced keep your employee's mental and physical 
 ## How to play
 Download `index.html`, `style.css`, `frontend.js` and `script.js` and put them in the same directory, then open index.html. Start clicking buttons and changing sliders to see what happens.
 
+Or just go to [this link](https://charlieee1.github.io/Health-Happiness-Money/).
+
 ## Inspiration
 I thought of managing the health of something, and I thought of a game where you manage the health of 100 employees. It seemed like a fun idea at the time, and turned out to become a fun game.
 
