@@ -162,9 +162,9 @@ function tick() {
 		console.log(`high score: ${Math.round(high)} at time: ${high_time}`);
 	}
 	if (time % 10 == 0) {
-		//clearInterval(ticker)
+		clearInterval(ticker)
 		delay *= .99;
-		//ticker = setInterval(tick, delay);
+		ticker = setInterval(tick, delay);
 	}
 }
 
