@@ -25,6 +25,8 @@ I created a desmos graph that shows the stats of the simulation if left untouche
 
 You can see that eventually, all stats will reach rock-bottom, which is why the player has to maintain the stats and get ever increasing amounts of money.
 
+My high score is 260, with time elapsed 81 and 96 dead! Let's see if you can beat me!
+
 ## How we built it
 As the game would be simple, I went for a simple html and javascript website, with javascript for the functionality and html for the looks.
 

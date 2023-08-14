@@ -17,10 +17,6 @@ class Person {
 			} else if ((this.health <= 60 || this.happiness < 20) && this.happiness > 0) {
 				this.happiness -= 1;
 			}
-			if (this.health == 0) {
-				this.alive = false;
-				return
-			}
 			if (this.health < working_threshold) {
 				this.isWorking = false;
 			}
@@ -38,14 +34,27 @@ class Person {
 				this.isWorking = true;
 			}
 		}
+		if (this.health <= 0) {
+			this.alive = false;
+			ded += 1;
+			return
+		}
 		av_hap += this.happiness / 100;
 		av_hel += this.health / 100;
+		if (this.health < min_hel) {
+			min_hel = this.health;
+		}
+		if (this.happiness < min_hap) {
+			min_hap = this.happiness
+		}
 	}
 }
 
 var money = 5;
 var av_hap = 70;
+var min_hap = av_hap;
 var av_hel = 80;
+var min_hel = av_hel;
 var working_threshold = 70;
 var back_to_work_threshold = 10;
 let wealth = (money + av_hap + av_hel) / 3;
@@ -53,6 +62,7 @@ let people = [];
 for (let i = 0; i < 100; i++) {
 	people.push(new Person());
 }
+var ded = 0;
 let time = 0;
 let high = money;
 let high_time = time;
@@ -73,14 +83,14 @@ function giveSupport() {
 	if (mood > 100) {
 		mood = 100;
 	}
-	money -= 4;
+	money -= 2;
 }
 
 function healPeople() {
 	for (person of people) {
-		if (person.health < 30) {
-			money -= (40 - person.health) / 100;
-			person.health = 40;
+		if (person.health < 50) {
+			money -= (60 - person.health) / 100;
+			person.health = 60;
 		}
 	}
 }
@@ -96,7 +106,7 @@ function healthMaintenance() {
 function cureDepression() {
 	for (person of people) {
 		if (person.happiness < 20) {
-			money -= (30 - person.happiness) / 10;
+			money -= (30 - person.happiness) / 100;
 			person.happiness = 30;
 		}
 	}

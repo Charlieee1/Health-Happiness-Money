@@ -97,6 +97,7 @@ canvas {
 	display: flex;
 	height: 20px;
 	column-gap: 5px;
+	align-items: baseline;
 }
 
 .button {

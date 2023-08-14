@@ -16,6 +16,7 @@ let money_graph = money_graph_raw.getContext("2d");
 
 let high_score = document.getElementById("high-score");
 let time_elapsed = document.getElementById("time");
+let dead_count = document.getElementById("dead");
 
 function resetctx(ctx, w, h) {
 	ctx.fillStyle = "white";
@@ -34,18 +35,30 @@ function line(ctx, x1, y1, x2, y2) {
 	ctx.stroke();
 }
 
+function colouredLine(ctx, x1, y1, x2, y2, c) {
+	ctx.strokeStyle = c;
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.stroke();
+}
+
 function updateHealthVisuals() {
 	// Health meter
 	resetctx(health_meter, meter_width, meter_height);
 	drawDanger(health_meter, 0, 10 * unit_vertical, meter_width);
 	drawDanger(health_meter, 70 * unit_vertical, meter_height, meter_width);
 	let level = unit_vertical * (100 - av_hel);
-	line(health_meter, 0, level, meter_width, level);
+	colouredLine(health_meter, 0, level, meter_width, level, "black");
+	level = unit_vertical * (100 - min_hel);
+	colouredLine(health_meter, 0, level, meter_width, level, "orange");
 	
 	// Health graph
 	resetctx(health_graph, graph_width, graph_height);
 	drawDanger(health_graph, 0, 10 * unit_vertical, graph_width);
 	drawDanger(health_graph, 70 * unit_vertical, meter_height, graph_width);
+	colouredLine(health_graph, 0, level, graph_width, level, "orange");
+	health_graph.strokeStyle = "black";
 	for (let i = 0; i < 499; i++) {
 		line(health_graph, i, 100 - hel_hist[i], i + 1, 100 - hel_hist[i + 1]);
 	}
@@ -63,12 +76,16 @@ function updateHappinessVisuals() {
 	drawDanger(happiness_meter, 0, 20 * unit_vertical, meter_width);
 	drawDanger(happiness_meter, 80 * unit_vertical, meter_height, meter_width);
 	let level = unit_vertical * (100 - av_hap);
-	line(happiness_meter, 0, level, meter_width, level);
+	colouredLine(happiness_meter, 0, level, meter_width, level, "black");
+	level = unit_vertical * (100 - min_hap);
+	colouredLine(happiness_meter, 0, level, meter_width, level, "orange");
 	
 	// Happiness graph
 	resetctx(happiness_graph, graph_width, graph_height);
 	drawDanger(happiness_graph, 0, 20 * unit_vertical, graph_width);
 	drawDanger(happiness_graph, 80 * unit_vertical, meter_height, graph_width);
+	colouredLine(happiness_graph, 0, level, graph_width, level, "orange");
+	happiness_graph.strokeStyle = "black";
 	for (let i = 0; i < 499; i++) {
 		line(happiness_graph, i, 100 - hap_hist[i], i + 1, 100 - hap_hist[i + 1]);
 	}
@@ -98,6 +115,7 @@ function updateVisuals() {
 	updateMoneyVisuals();
 	high_score.innerHTML = "High Score: " + Math.round(high);
 	time_elapsed.innerHTML = "Time elapsed: " + time;
+	dead_count.innerHTML = "Dead: " + ded;
 }
 updateVisuals();
 
