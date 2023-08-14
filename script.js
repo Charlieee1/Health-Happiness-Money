@@ -30,7 +30,7 @@ class Person {
 				// People are generally not very happy when they're sick
 				this.happiness -= 1;
 			}
-			if (this.health == working_threshold + back_to_work_threshold) {
+			if (this.health >= working_threshold + back_to_work_threshold) {
 				this.isWorking = true;
 			}
 		}

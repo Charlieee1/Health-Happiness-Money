@@ -71,7 +71,7 @@ function updateHealthVisuals() {
 let working_threshold_slider = document.getElementById("working-threshold");
 working_threshold_slider.value = working_threshold;
 working_threshold_slider.oninput = function() {
-	working_threshold = this.value;
+	working_threshold = parseInt(this.value);
 }
 
 function updateHappinessVisuals() {
