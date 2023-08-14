@@ -39,7 +39,7 @@ class Person {
 			ded += 1;
 			return
 		}
-		av_hap += this.happiness / 100;
+		av_hap += this.happiness / (100 - ded);
 		av_hel += this.health / 100;
 		if (this.health < min_hel) {
 			min_hel = this.health;
@@ -91,12 +91,13 @@ function healPeople() {
 		if (person.health < 50) {
 			money -= (60 - person.health) / 100;
 			person.health = 60;
+			console.log(person.health);
 		}
 	}
 }
 
 function healthMaintenance() {
-	for (person of people.sort(() => .5 - Math.random()).slice(0, 40)) {
+	for (person of people) {
 		person.health = Math.min(person.health + 10, 100);
 		person.happiness = Math.min(Math.max(person.happiness + Math.round(Math.random()), 0), 100);
 		money -= .1;
@@ -106,8 +107,8 @@ function healthMaintenance() {
 function cureDepression() {
 	for (person of people) {
 		if (person.happiness < 20) {
-			money -= (30 - person.happiness) / 100;
-			person.happiness = 30;
+			money -= (50 - person.happiness) / 100;
+			person.happiness = 50;
 		}
 	}
 }
@@ -133,7 +134,7 @@ function tick() {
 	// Your company has some cases of people becoming especially unhappy or landing in an accident
 	// Made ridiculously extreme for gameplay purposes
 	people[Math.round(99 * Math.random())].happiness -= 5;
-	people[Math.round(99 * Math.random())].health -= 20;
+	people[Math.round(99 * Math.random())].health -= 10;
 	wealth = (money + av_hap + av_hel) / 3;
 	time += 1;
 	if (money > high) {
